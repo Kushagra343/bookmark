@@ -1,0 +1,9 @@
+# Flask
+Flask==0.10.1
+
+# Flask extensions
+pyexcel==0.2.5
+
+# Python packages
+passlib==1.6.5
+mysql==5.5.52

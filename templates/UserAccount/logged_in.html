@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<a href="/logout/">Log out</a>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<div data-role="page">
+
+  <div data-role="main" class="ui-content">
+
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;">
+      <form method="post" action="/logged_in/">
+        <div>
+          <h3>Login information</h3>
+          <label for="name" class="ui-hidden-accessible">Title</label>
+          <input type="text" name="name" id="name" placeholder="Title" required>
+          <label for="url" class="ui-hidden-accessible">URL</label>
+          <input type="text" name="url" id="url" placeholder="URL" required>
+          <input type="submit" data-inline="true" value="submit">
+        </div>
+      </form>
+    </div>
+
+
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Url</th>
+    <th>Timestamp</th>
+  </tr>
+ {% for item in data %} 
+  <tr>
+    <td>{{item[1]}}</td>
+    <td><a href={{item[2]}}  target="_blank">{{item[2]}}</a></td>
+    <td>{{item[3]}}</td>
+  </tr>
+{% endfor %}
+</table>
+
+<form action="/download" method="post">
+<center><input type="submit" name="submit" value="Export Bookmarks"></center> 
+         </form>
+
+
+</body>
+</html>
+
